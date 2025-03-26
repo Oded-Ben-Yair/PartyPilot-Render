@@ -1,13 +1,18 @@
 services:
-  - type: web
-    name: party-pilot
-    env: node
-    buildCommand: |
-      npm install
-      npm run install:frontend
-      npm run install:backend
-      npm run build
-    startCommand: npm start
-    envVars:
-      - key: OPENAI_API_KEY
-        sync: false
+ - type: web
+   name: party-pilot
+   env: node
+   branch: main
+   buildCommand: |
+     npm install
+     npm run install:frontend
+     npm run install:backend
+     npm run build
+   startCommand: cd server && npm start
+   envVars:
+     - key: OPENAI_API_KEY
+       sync: false
+     - key: PORT
+       value: 10000
+   healthCheckPath: /api/health
+   plan: free
