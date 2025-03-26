@@ -1,0 +1,11 @@
+{
+    "name": "party-pilot",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "cd server && npm start",
+      "build": "cd frontend && npm run build",
+      "install:frontend": "cd frontend && npm install",
+      "install:backend": "cd server && npm install",
+      "install": "npm run install:frontend && npm run install:backend"
+    }
+  }
